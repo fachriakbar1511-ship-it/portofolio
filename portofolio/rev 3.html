@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Muh Fachri Akbar - Google Student Ambassador 2026</title>
+    <!-- 4. Favicon (Logo di Tab Browser) -->
+    <link rel="icon" type="image/png" href="gemini_aurora_thumbnail_4g_e74822ff0ca4259beb718.png">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #ffffff;
+            color: #1f2937;
+        }
+
+        .bg-grid-pattern {
+            background-image: linear-gradient(to right, #f3f4f6 1px, transparent 1px),
+                              linear-gradient(to bottom, #f3f4f6 1px, transparent 1px);
+            background-size: 40px 40px;
+            background-position: center center;
+        }
+
+        .ambient-glow {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            z-index: -1;
+            opacity: 0.4;
+        }
+        .glow-blue { background-color: rgba(66, 133, 244, 0.4); width: 400px; height: 400px; top: -100px; left: -100px; }
+        .glow-red { background-color: rgba(234, 67, 53, 0.3); width: 300px; height: 300px; top: 20%; right: -50px; }
+        .glow-yellow { background-color: rgba(251, 188, 5, 0.3); width: 350px; height: 350px; bottom: 10%; left: 10%; }
+        .glow-green { background-color: rgba(52, 168, 83, 0.3); width: 400px; height: 400px; bottom: -100px; right: -50px; }
+
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.05);
+        }
+
+        .icon-glow-gemini {
+            background: linear-gradient(135deg, #4285F4, #9b72cb, #d96570);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 20px rgba(155, 114, 203, 0.4);
+        }
+
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 350px;
+            max-height: 400px;
+        }
+        @media (max-width: 640px) {
+            .chart-container { height: 250px; }
+        }
+
+        .tab-btn { transition: all 0.3s ease; }
+        .tab-btn.active { 
+            background-color: #4285F4; 
+            color: white; 
+            box-shadow: 0 4px 14px rgba(66, 133, 244, 0.4);
+            border-color: #4285F4;
+        }
+        
+        .tech-step { transition: transform 0.2s; cursor: pointer; }
+        .tech-step:hover { transform: translateY(-5px); }
+        .tech-step.active { border-color: #4285F4; background-color: #eff6ff; }
+
+        @keyframes float {
+            0% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-15px) rotate(3deg); }
+            100% { transform: translateY(0px) rotate(0deg); }
+        }
+        .animate-float { animation: float 6s ease-in-out infinite; }
+        .animate-float-delayed { animation: float 7s ease-in-out infinite 2s; }
+
+        .slide {
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        .slide.active { opacity: 1; position: relative; }
+
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #f1f1f1; }
+        ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+    </style>
+</head>
+<body class="bg-grid-pattern relative overflow-x-hidden">
+
+    <!-- Ambient Glow Backgrounds -->
+    <div class="ambient-glow glow-blue fixed"></div>
+    <div class="ambient-glow glow-red fixed"></div>
+    <div class="ambient-glow glow-yellow fixed"></div>
+    <div class="ambient-glow glow-green fixed"></div>
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 glass-panel border-b border-gray-200/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16 items-center">
+                <div class="flex-shrink-0 flex items-center gap-2">
+                    <img src="woNnVDSsABNLZsKfqvF7AJwYUM.avif" alt="GSA Logo" class="h-6 object-contain">
+                </div>
+                <div class="hidden lg:flex space-x-8">
+                    <a href="#about" class="text-sm font-medium text-gray-600 hover:text-[#4285F4] transition-colors">About</a>
+                    <a href="#impact" class="text-sm font-medium text-gray-600 hover:text-[#4285F4] transition-colors">Impact</a>
+                    <a href="#solutions" class="text-sm font-medium text-gray-600 hover:text-[#4285F4] transition-colors">Tech</a>
+                    <a href="#voice" class="text-sm font-medium text-gray-600 hover:text-[#4285F4] transition-colors">Voice</a>
+                    <a href="#gallery" class="text-sm font-medium text-gray-600 hover:text-[#4285F4] transition-colors">Gallery</a>
+                </div>
+                <a href="#connect" class="px-5 py-2 rounded-full bg-[#4285F4] text-white text-sm font-semibold hover:bg-blue-600 transition-colors shadow-lg shadow-blue-500/30">
+                    My Drive
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content Container -->
+    <main class="pt-24 pb-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto space-y-24">
+
+        <!-- HERO SECTION -->
+        <section id="hero" class="min-h-[85vh] flex flex-col justify-center items-center text-center relative z-10 pt-12">
+            <img src="7KFlIkawKLZdBtcOhReKt6RYSg4.avif" class="absolute top-20 left-[10%] w-16 opacity-80 animate-float" alt="Sparkle">
+            <img src="uYHcaMqqM4Cl6qNlJzPAv2V3mh4.avif" class="absolute bottom-20 right-[15%] w-20 opacity-70 animate-float-delayed" alt="Dino">
+            <img src="8wTRIiSVSyfl0uTe07aNw7eiRJ0.avif" class="absolute top-32 right-[5%] w-32 md:w-48 opacity-90 animate-float drop-shadow-xl" alt="Team Google">
+
+            <div class="relative w-40 h-40 md:w-48 md:h-48 mb-8 mx-auto rounded-full p-2 glass-panel">
+                <div class="w-full h-full rounded-full overflow-hidden bg-gray-100 flex items-center justify-center border-4 border-white shadow-inner">
+                    <!-- FOTO PROFIL ANDA -->
+                    <img src="[Masukkan_Nama_File_Foto_Profil_Anda.jpg]" alt="Foto Profil Fachri Akbar" class="w-full h-full object-cover" onerror="this.src='https://ui-avatars.com/api/?name=Fachri+Akbar&background=4285F4&color=fff&size=200'">
+                </div>
+                <div class="absolute bottom-2 right-2 bg-white p-2 rounded-full shadow-lg">
+                    <img src="sqsbIoeT35MNu9QMBDbsVW7Q92c.avif" class="w-6 h-6" alt="Heart">
+                </div>
+            </div>
+
+            <a href="https://googlestudentambassador.id/" target="_blank" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full glass-panel border border-[#4285F4]/40 text-[#4285F4] text-sm font-bold mb-6 hover:bg-[#4285F4] hover:text-white transition-all cursor-pointer shadow-md shadow-blue-500/10">
+                ✨ Candidate for Google Student Ambassador 2026 ↗
+            </a>
+            
+            <h1 class="text-5xl md:text-7xl font-extrabold tracking-tight text-gray-900 mb-6 leading-tight">
+                MUH. FACHRI <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#4285F4] to-[#34A853]">AKBAR</span>
+            </h1>
+            <h2 class="text-xl md:text-2xl text-gray-600 font-medium mb-8 max-w-2xl">
+                Civil Engineering Student | Community Leader | Tech Enthusiast
+            </h2>
+        </section>
+
+        <!-- ABOUT SECTION -->
+        <section id="about" class="scroll-mt-24 z-10 relative">
+            <div class="glass-panel rounded-3xl p-8 md:p-12 border border-gray-100 relative overflow-hidden">
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <div class="relative z-10">
+                        <h3 class="text-[#EA4335] font-bold text-sm tracking-widest uppercase mb-2">The Natural Leader</h3>
+                        <h2 class="text-3xl font-bold text-gray-900 mb-6">Hello, I'm Akbar!</h2>
+                        <p class="text-gray-600 leading-relaxed mb-4">
+                            Saya adalah mahasiswa D4 Teknik Sipil di Politeknik Negeri Ujung Pandang yang memiliki <i>passion</i> besar pada pengembangan komunitas dan pemecahan masalah.
+                        </p>
+                        <p class="text-gray-600 leading-relaxed mb-6">
+                            Sejak di bangku sekolah hingga di kampus, saya selalu dipercaya mengambil peran strategis—mulai dari Ketua Kelas, Ketua MPK, hingga Koordinator Pramuka tingkat Kota. Saya percaya bahwa kepemimpinan yang baik adalah tentang mendengarkan, mengoordinasikan potensi, dan menggunakan <b>tools yang tepat</b> untuk menciptakan dampak efisien bagi banyak orang.
+                        </p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm font-medium flex items-center gap-1"><img src="gemini_aurora_thumbnail_4g_e74822ff0ca4259beb718.png" class="h-3"> Leadership</span>
+                            <span class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm font-medium flex items-center gap-1"><img src="forms_2020q4_48dp.png" class="h-3"> Problem Solving</span>
+                            <span class="px-3 py-1 bg-blue-50 text-blue-700 rounded-full text-sm font-medium border border-blue-100 flex items-center gap-1"><img src="docs_2020q4_48dp.png" class="h-3"> Google Workspace</span>
+                        </div>
+                    </div>
+
+                    <div class="relative w-full aspect-[4/3] rounded-2xl overflow-hidden shadow-xl border-4 border-white/50 bg-gray-100">
+                        <div id="aboutSlider" class="w-full h-full relative">
+                            <div class="slide active">
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent z-10"></div>
+                                <img src="[Masukkan_Foto_Aksi_Pramuka_Anda.jpg]" alt="Kegiatan Pramuka" class="w-full h-full object-cover" onerror="this.src='https://images.unsplash.com/photo-1517048676732-d65bc937f952?q=80&w=800&auto=format&fit=crop'">
+                                <div class="absolute bottom-4 left-4 z-20 text-white">
+                                    <span class="text-xs font-bold bg-[#4285F4] px-2 py-1 rounded">Leadership</span>
+                                    <p class="font-semibold text-sm mt-1">Koordinator Pramuka Kota Makassar</p>
+                                </div>
+                            </div>
+                            <div class="slide">
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent z-10"></div>
+                                <img src="[Masukkan_Foto_Aksi_Juri_Anda.jpg]" alt="Dewan Juri" class="w-full h-full object-cover" onerror="this.src='https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=800&auto=format&fit=crop'">
+                                <div class="absolute bottom-4 left-4 z-20 text-white">
+                                    <span class="text-xs font-bold bg-[#FBBC05] px-2 py-1 rounded text-gray-900">Evaluator</span>
+                                    <p class="font-semibold text-sm mt-1">Dewan Juri Manihot Scout Competition</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- IMPACT METRICS SECTION (CLICKABLE WITH MODAL) -->
+        <section id="impact" class="scroll-mt-24 z-10 relative">
+            <div class="mb-8 text-center relative">
+                <img src="A8KpgOwWGlFTe3wACiaTLxddE.avif" class="w-16 h-16 mx-auto mb-2 animate-float" alt="Rocket">
+                <h3 class="text-[#FBBC05] font-bold text-sm tracking-widest uppercase mb-2">Scale & Reach</h3>
+                <h2 class="text-3xl font-bold text-gray-900">Driving Impact at Scale</h2>
+                <p class="text-sm text-gray-500 mt-2">Klik kartu di bawah ini untuk melihat bukti dokumentasi.</p>
+            </div>
+
+            <div class="grid lg:grid-cols-2 gap-8 items-center glass-panel rounded-3xl p-8 border border-gray-100">
+                <div class="w-full">
+                    <div class="chart-container">
+                        <canvas id="impactChart"></canvas>
+                    </div>
+                </div>
+                <div class="space-y-4">
+                    <!-- 6. Kartu Interaktif Impact -->
+                    <div class="p-5 rounded-2xl bg-white border border-gray-100 shadow-sm hover:shadow-md transition-all cursor-pointer hover:-translate-y-1 relative group" 
+                         onclick="openModal('[Foto_Bukti_Peran_Saka_Nasional.jpg]', 'National Scale (>5,000)', 'Mengoordinasikan perwakilan Kwarcab Makassar di Peran Saka Nasional. Memastikan kesiapan administrasi dan komunikasi tim.')">
+                        <div class="absolute top-3 right-3 text-xs font-bold text-blue-500 opacity-0 group-hover:opacity-100 transition-opacity flex items-center gap-1">
+                            📸 Lihat Bukti
+                        </div>
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center text-blue-600 font-bold text-xl">🌍</div>
+                            <div class="pr-6">
+                                <h4 class="font-bold text-gray-900">National Scale (>5,000)</h4>
+                                <p class="text-sm text-gray-500 line-clamp-2">Mengoordinasikan perwakilan Kwarcab Makassar di Peran Saka Nasional. Memastikan kesiapan administrasi dan komunikasi tim.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="p-5 rounded-2xl bg-white border border-gray-100 shadow-sm hover:shadow-md transition-all cursor-pointer hover:-translate-y-1 relative group"
+                         onclick="openModal('[Foto_Bukti_Organisasi_SMANET.jpg]', 'Organizational (80+ & 60)', 'Memimpin 60 pengurus MPK SMAN 7 & Steering Committee 80 panitia SMANET CUP.')">
+                        <div class="absolute top-3 right-3 text-xs font-bold text-green-500 opacity-0 group-hover:opacity-100 transition-opacity flex items-center gap-1">
+                            📸 Lihat Bukti
+                        </div>
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 rounded-full bg-green-100 flex items-center justify-center text-green-600 font-bold text-xl">👥</div>
+                            <div class="pr-6">
+                                <h4 class="font-bold text-gray-900">Organizational (80+ & 60)</h4>
+                                <p class="text-sm text-gray-500 line-clamp-2">Memimpin 60 pengurus MPK SMAN 7 & Steering Committee 80 panitia SMANET CUP.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="p-5 rounded-2xl bg-white border border-gray-100 shadow-sm hover:shadow-md transition-all cursor-pointer hover:-translate-y-1 relative group"
+                         onclick="openModal('[Foto_Bukti_Dewan_Juri.jpg]', 'Public Trust (28 Schools)', 'Terpilih menjadi Dewan Juri untuk 28 pangkalan (SMP & SMA) pada Manihot Scout Competition.')">
+                         <div class="absolute top-3 right-3 text-xs font-bold text-yellow-500 opacity-0 group-hover:opacity-100 transition-opacity flex items-center gap-1">
+                            📸 Lihat Bukti
+                        </div>
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 rounded-full bg-yellow-100 flex items-center justify-center text-yellow-600 font-bold text-xl">🏫</div>
+                            <div class="pr-6">
+                                <h4 class="font-bold text-gray-900">Public Trust (28 Schools)</h4>
+                                <p class="text-sm text-gray-500 line-clamp-2">Terpilih menjadi Dewan Juri untuk 28 pangkalan (SMP & SMA) pada Manihot Scout Competition.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TECH SOLUTIONS SECTION -->
+        <section id="solutions" class="scroll-mt-24 z-10 relative">
+            <div class="mb-8 text-center relative">
+                <img src="gemini_aurora_thumbnail_4g_e74822ff0ca4259beb718.png" class="h-12 mx-auto mb-4 object-contain" alt="Gemini Logo">
+                <h2 class="text-3xl font-bold text-gray-900">Tech for Real Solutions</h2>
+            </div>
+
+            <div class="glass-panel rounded-3xl p-8 border border-gray-100 relative">
+                <img src="wF22dWLeeR6wzFkYFEYJxiFdBoY.avif" class="absolute -top-6 -right-6 w-20 animate-float drop-shadow-lg z-20" alt="Pen Wand">
+                
+                <div class="flex flex-wrap gap-2 mb-8 justify-center border-b border-gray-200 pb-4 relative z-10">
+                    <button id="btn-workspace" class="tab-btn active px-6 py-2 rounded-full font-semibold border border-gray-200 text-gray-600 flex items-center gap-2" onclick="switchTechTab('workspace')">
+                        <img src="docs_2020q4_48dp.png" class="w-4 h-4"> Workspace Automation
+                    </button>
+                    <button id="btn-gemini" class="tab-btn px-6 py-2 rounded-full font-semibold border border-gray-200 text-gray-600 flex items-center gap-2" onclick="switchTechTab('gemini')">
+                        <img src="gemini_aurora_thumbnail_4g_e74822ff0ca4259beb718.png" class="w-4 h-4"> Gemini AI Productivity
+                    </button>
+                </div>
+
+                <!-- Workspace Content -->
+                <div id="content-workspace" class="block animate-fade-in">
+                    <div class="grid lg:grid-cols-5 gap-8">
+                        <div class="lg:col-span-2 space-y-4">
+                            <h3 class="text-xl font-bold text-gray-900 mb-2">"Bebas Kompen" Automation</h3>
+                            <p class="text-gray-600 text-sm mb-4 italic">"Working smarter, not harder for the community."</p>
+                            <div class="bg-red-50 p-4 rounded-xl border border-red-100">
+                                <span class="text-xs font-bold text-red-600 uppercase mb-1 block">Problem</span>
+                                <p class="text-sm text-gray-800 mb-3">Mahasiswa kesulitan mengurus dokumen "Kertas Bebas Kompen" secara manual. Butuh sistem cetak massal.</p>
+                            </div>
+                            <div class="bg-green-50 p-4 rounded-xl border border-green-100 relative">
+                                <span class="text-xs font-bold text-green-600 uppercase mb-1 block">Solution & Result</span>
+                                <p class="text-sm text-gray-800 mb-4">Integrasi Forms-Sheets-Autocrat memangkas waktu kerja menjadi hitungan detik. Berhasil membantu puluhan mahasiswa.</p>
+                                
+                                <!-- 3. Tautan Ayo Coba Forms -->
+                                <a href="https://forms.gle/otDoKrDEsoJ8mtWu9" target="_blank" class="inline-flex items-center justify-center gap-2 w-full px-4 py-2.5 bg-white border border-green-200 text-green-700 font-bold rounded-lg shadow-sm hover:bg-green-100 transition-colors text-sm">
+                                    <img src="forms_2020q4_48dp.png" class="w-5 h-5"> Ayo Coba Form Bebas Kompen ↗
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Interactive Flow with Real Icons -->
+                        <div class="lg:col-span-3 bg-white p-6 rounded-2xl border border-gray-100 shadow-inner">
+                            <h4 class="text-sm font-bold text-gray-500 uppercase text-center mb-6">Action: Interactive Workflow</h4>
+                            <div class="flex flex-wrap justify-between items-center gap-2 mb-8">
+                                <div class="tech-step active flex-1 text-center p-3 rounded-xl border border-gray-200" onclick="showFlowDetail(1)">
+                                    <img src="forms_2020q4_48dp.png" class="w-8 h-8 mx-auto mb-2 object-contain">
+                                    <div class="text-[10px] font-bold text-gray-700">Forms</div>
+                                </div>
+                                <div class="tech-step flex-1 text-center p-3 rounded-xl border border-gray-200" onclick="showFlowDetail(2)">
+                                    <img src="sheets_2020q4_48dp.png" class="w-8 h-8 mx-auto mb-2 object-contain">
+                                    <div class="text-[10px] font-bold text-gray-700">Autocrat</div>
+                                </div>
+                                <div class="tech-step flex-1 text-center p-3 rounded-xl border border-gray-200" onclick="showFlowDetail(3)">
+                                    <img src="docs_2020q4_48dp.png" class="w-8 h-8 mx-auto mb-2 object-contain">
+                                    <div class="text-[10px] font-bold text-gray-700">Docs</div>
+                                </div>
+                                <div class="tech-step flex-1 text-center p-3 rounded-xl border border-gray-200" onclick="showFlowDetail(4)">
+                                    <img src="logo_gmail_lockup_default_2x_r5.png" class="w-12 h-8 mx-auto mb-2 object-contain">
+                                    <div class="text-[10px] font-bold text-gray-700">Gmail</div>
+                                </div>
+                            </div>
+                            <div id="flow-detail-box" class="bg-blue-50/50 p-5 rounded-xl border border-blue-100 min-h-[100px] flex items-center">
+                                <p id="flow-text" class="text-gray-700 text-sm">
+                                    <strong class="text-[#4285F4]">Google Forms:</strong> Digunakan sebagai portal awal. Mahasiswa cukup input nama/NIM.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Gemini Content -->
+                <div id="content-gemini" class="hidden animate-fade-in">
+                    <div class="grid md:grid-cols-2 gap-8 items-center">
+                        <div class="bg-gradient-to-br from-gray-900 to-gray-800 p-8 rounded-2xl text-white shadow-xl">
+                            <img src="gemini_aurora_thumbnail_4g_e74822ff0ca4259beb718.png" alt="Gemini Logo" class="h-10 mb-4 object-contain">
+                            <h3 class="text-2xl font-bold mb-2 flex items-center gap-2">Prompt Optimization</h3>
+                            <p class="text-gray-300 text-sm mb-6">Maximizing AI capabilities for data tracking and deep research.</p>
+                            
+                            <div class="space-y-4">
+                                <div class="bg-white/10 p-4 rounded-xl border border-white/10 backdrop-blur-sm">
+                                    <h4 class="font-bold text-blue-300 mb-1 text-sm">Smart Prompt Architecture</h4>
+                                    <p class="text-sm text-gray-200">Mengembangkan kerangka "Prompt Optimization" mandiri untuk mengubah perintah sederhana menjadi instruksi spesifik.</p>
+                                </div>
+                                
+                                <!-- 3. Tautan Ayo Coba Meta Prompt -->
+                                <a href="https://docs.google.com/document/d/1jQr-5lbjsa3NXy5yimrOamLEl2mdJw_61PyPiTvgqys/edit?usp=sharing" target="_blank" class="inline-flex items-center justify-center gap-2 w-full px-4 py-3 bg-[#4285F4] text-white font-bold rounded-xl shadow-lg hover:bg-blue-600 transition-colors">
+                                    <img src="docs_2020q4_48dp.png" class="w-5 h-5 brightness-0 invert"> Lihat Gemini Meta Prompt ↗
+                                </a>
+                            </div>
+                        </div>
+                        <div class="space-y-4">
+                            <div class="bg-gray-100 p-4 rounded-t-2xl rounded-bl-2xl mr-12 text-sm text-gray-700 border border-gray-200">
+                                <b>Basic Prompt:</b> "Buatkan format pencatatan keuangan mahasiswa."
+                            </div>
+                            <div class="text-center text-gray-400 text-xs font-bold flex items-center justify-center gap-1">
+                                <img src="7KFlIkawKLZdBtcOhReKt6RYSg4.avif" class="w-4 h-4"> OPTIMIZED BY GEMINI METAPROMPT ↓
+                            </div>
+                            <div class="bg-blue-50 border border-blue-200 p-4 rounded-t-2xl rounded-br-2xl ml-12 text-sm text-gray-800 shadow-sm">
+                                <b>Optimized:</b> "Bertindaklah sebagai Data Analyst. Buatkan struktur Google Sheets untuk tracking keuangan mahasiswa dengan 3 sheet utama... Sertakan formula ArrayFormula..."
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PUBLIC SPEAKING SECTION (CLICKABLE) -->
+        <section id="voice" class="scroll-mt-24 z-10 relative">
+            <div class="mb-8 text-center relative">
+                <img src="aHRSFIiUfrPvNUCR6GBEyGAiuCg.avif" class="w-20 mx-auto mb-2 animate-float" alt="Megaphone">
+                <h2 class="text-3xl font-bold text-gray-900">The Voice of The Community</h2>
+                <p class="text-sm text-gray-500 mt-2">Klik kartu di bawah ini untuk melihat dokumentasi / foto kegiatan.</p>
+            </div>
+
+            <!-- 6. Kartu Interaktif Voice -->
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="glass-panel p-6 rounded-2xl border-t-4 border-t-[#4285F4] hover:-translate-y-2 transition-transform cursor-pointer group relative"
+                     onclick="openModal('[Foto_Bukti_Speaker_Siswa_Baru.jpg]', 'Mass Audience', 'Menjadi pembicara dan pengarah di depan >300 siswa baru.')">
+                     <div class="absolute top-3 right-3 text-xs font-bold text-[#4285F4] opacity-0 group-hover:opacity-100">📸 Bukti</div>
+                    <h4 class="font-bold text-gray-900 mb-2 mt-2">Mass Audience</h4>
+                    <p class="text-sm text-gray-600">Menjadi pembicara di depan <b>>300 siswa baru</b>.</p>
+                </div>
+                
+                <div class="glass-panel p-6 rounded-2xl border-t-4 border-t-[#EA4335] hover:-translate-y-2 transition-transform cursor-pointer group relative"
+                     onclick="openModal('[Foto_Bukti_Juara_MC.jpg]', 'Formal & Religious', 'Juara 1 Lomba MC Miftahunnur Ramadhan, Juara 2 Kultum.')">
+                     <div class="absolute top-3 right-3 text-xs font-bold text-[#EA4335] opacity-0 group-hover:opacity-100">📸 Bukti</div>
+                    <h4 class="font-bold text-gray-900 mb-2 mt-2">Formal & Religious</h4>
+                    <p class="text-sm text-gray-600">Juara 1 Lomba MC Miftahunnur Ramadhan, Juara 2 Kultum.</p>
+                </div>
+                
+                <div class="glass-panel p-6 rounded-2xl border-t-4 border-t-[#FBBC05] hover:-translate-y-2 transition-transform cursor-pointer group relative"
+                     onclick="openModal('[Foto_Bukti_Mediasi.jpg]', 'Conflict Mediation', 'Mediasi konflik antar ekstrakurikuler lintas organisasi.')">
+                     <div class="absolute top-3 right-3 text-xs font-bold text-[#FBBC05] opacity-0 group-hover:opacity-100">📸 Bukti</div>
+                    <h4 class="font-bold text-gray-900 mb-2 mt-2">Conflict Mediation</h4>
+                    <p class="text-sm text-gray-600">Mediasi konflik antar ekstrakurikuler lintas organisasi.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ACTIVITY GALLERY SECTION -->
+        <section id="gallery" class="scroll-mt-24 z-10 relative">
+            <div class="mb-10 text-center">
+                <h3 class="text-gray-500 font-bold text-sm tracking-widest uppercase mb-2">Visual Evidence</h3>
+                <h2 class="text-3xl font-bold text-gray-900">Activity Gallery</h2>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Gallery Item 1 -->
+                <div class="glass-panel rounded-2xl overflow-hidden group cursor-pointer border border-gray-200">
+                    <div class="h-48 overflow-hidden relative">
+                        <img src="[Foto_Peran_Saka.jpg]" alt="Peran Saka Nasional" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" onerror="this.src='https://images.unsplash.com/photo-1523580494863-6f3031224c94?q=80&w=600&auto=format&fit=crop'">
+                        <div class="absolute inset-0 bg-gradient-to-t from-gray-900/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
+                            <span class="text-white text-xs font-bold bg-[#EA4335] px-2 py-1 rounded">Nasional</span>
+                        </div>
+                    </div>
+                    <div class="p-5 bg-white">
+                        <h4 class="font-bold text-gray-900 text-lg mb-1">Peran Saka Nasional</h4>
+                        <p class="text-sm text-gray-500 line-clamp-2">Pimpinan Kontingen Cabang Kota Makassar (Gorontalo, 2025).</p>
+                    </div>
+                </div>
+
+                <!-- Gallery Item 2 -->
+                <div class="glass-panel rounded-2xl overflow-hidden group cursor-pointer border border-gray-200">
+                    <div class="h-48 overflow-hidden relative">
+                        <img src="[Foto_Raimuna.jpg]" alt="Raimuna Nasional" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" onerror="this.src='https://images.unsplash.com/photo-1511632765486-a01980e01a18?q=80&w=600&auto=format&fit=crop'">
+                        <div class="absolute inset-0 bg-gradient-to-t from-gray-900/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
+                            <span class="text-white text-xs font-bold bg-[#34A853] px-2 py-1 rounded">Nasional</span>
+                        </div>
+                    </div>
+                    <div class="p-5 bg-white">
+                        <h4 class="font-bold text-gray-900 text-lg mb-1">Raimuna Nasional</h4>
+                        <p class="text-sm text-gray-500 line-clamp-2">Peserta Raimuna Nasional Jakarta (Agustus 2024).</p>
+                    </div>
+                </div>
+
+                <!-- Gallery Item 3 -->
+                <div class="glass-panel rounded-2xl overflow-hidden group cursor-pointer border border-gray-200">
+                    <div class="h-48 overflow-hidden relative">
+                        <img src="[Foto_SmanetCup.jpg]" alt="SMANET CUP" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" onerror="this.src='https://images.unsplash.com/photo-1540317580384-e5d43616b9aa?q=80&w=600&auto=format&fit=crop'">
+                        <div class="absolute inset-0 bg-gradient-to-t from-gray-900/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
+                            <span class="text-white text-xs font-bold bg-[#FBBC05] px-2 py-1 rounded">Sekolah</span>
+                        </div>
+                    </div>
+                    <div class="p-5 bg-white">
+                        <h4 class="font-bold text-gray-900 text-lg mb-1">Steering Committee</h4>
+                        <p class="text-sm text-gray-500 line-clamp-2">SMANET CUP 2024. Mengawasi dan menjadi konsultan 80 panitia.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 1. CERTIFICATES GALLERY SECTION (NEW) -->
+        <section id="certificates" class="scroll-mt-24 z-10 relative">
+            <div class="mb-10 text-center">
+                <h3 class="text-gray-500 font-bold text-sm tracking-widest uppercase mb-2">Achievements</h3>
+                <h2 class="text-3xl font-bold text-gray-900">Certificate Gallery</h2>
+                <p class="mt-4 text-gray-600 max-w-2xl mx-auto text-sm">
+                    Kumpulan penghargaan dan sertifikasi partisipasi dari berbagai kegiatan dan perlombaan.
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <!-- Cert 1 -->
+                <div class="rounded-xl overflow-hidden border border-gray-200 shadow-sm cursor-pointer hover:shadow-lg transition-all" onclick="openModal('[Foto_Sertifikat_1.jpg]', 'Sertifikat 1', 'Juara 1 Lomba MC')">
+                    <img src="[Foto_Sertifikat_1.jpg]" class="w-full aspect-[4/3] object-cover" alt="Sertifikat" onerror="this.src='https://images.unsplash.com/photo-1589330694653-efa6475306e1?q=80&w=400&auto=format&fit=crop'">
+                    <div class="bg-white p-3 text-center"><p class="text-xs font-bold text-gray-800 truncate">Juara 1 Lomba MC</p></div>
+                </div>
+                <!-- Cert 2 -->
+                <div class="rounded-xl overflow-hidden border border-gray-200 shadow-sm cursor-pointer hover:shadow-lg transition-all" onclick="openModal('[Foto_Sertifikat_2.jpg]', 'Sertifikat 2', 'Peserta Raimuna Nasional')">
+                    <img src="[Foto_Sertifikat_2.jpg]" class="w-full aspect-[4/3] object-cover" alt="Sertifikat" onerror="this.src='https://images.unsplash.com/photo-1589330694653-efa6475306e1?q=80&w=400&auto=format&fit=crop'">
+                    <div class="bg-white p-3 text-center"><p class="text-xs font-bold text-gray-800 truncate">Raimuna Nasional</p></div>
+                </div>
+                <!-- Cert 3 -->
+                <div class="rounded-xl overflow-hidden border border-gray-200 shadow-sm cursor-pointer hover:shadow-lg transition-all" onclick="openModal('[Foto_Sertifikat_3.jpg]', 'Sertifikat 3', 'Dewan Juri LKBB')">
+                    <img src="[Foto_Sertifikat_3.jpg]" class="w-full aspect-[4/3] object-cover" alt="Sertifikat" onerror="this.src='https://images.unsplash.com/photo-1589330694653-efa6475306e1?q=80&w=400&auto=format&fit=crop'">
+                    <div class="bg-white p-3 text-center"><p class="text-xs font-bold text-gray-800 truncate">Dewan Juri LKBB</p></div>
+                </div>
+                <!-- Cert 4 -->
+                <div class="rounded-xl overflow-hidden border border-gray-200 shadow-sm cursor-pointer hover:shadow-lg transition-all" onclick="openModal('[Foto_Sertifikat_4.jpg]', 'Sertifikat 4', 'Lomba Vlog PKKMB')">
+                    <img src="[Foto_Sertifikat_4.jpg]" class="w-full aspect-[4/3] object-cover" alt="Sertifikat" onerror="this.src='https://images.unsplash.com/photo-1589330694653-efa6475306e1?q=80&w=400&auto=format&fit=crop'">
+                    <div class="bg-white p-3 text-center"><p class="text-xs font-bold text-gray-800 truncate">Lomba Vlog PKKMB</p></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA SECTION WITH GDRIVE LINK -->
+        <section id="connect" class="py-12 z-10 relative">
+            <div class="bg-gray-900 rounded-[3rem] p-12 text-center text-white relative overflow-hidden shadow-2xl">
+                <img src="rLzMJOcV2lfnnS1g9Ax4OauCn0.avif" class="absolute top-10 left-10 w-16 opacity-50 animate-float" alt="Smiley">
+
+                <div class="relative z-10 max-w-3xl mx-auto">
+                    <h2 class="text-4xl font-bold mb-6">Why I Belong in the GSA Program?</h2>
+                    <p class="text-xl text-gray-300 mb-8 leading-relaxed">
+                        Saya adalah <i>community builder</i> yang menggunakan teknologi untuk mempermudah hidup orang lain. 
+                        Let's make an impact together!
+                    </p>
+                    
+                    <!-- 2. Tombol Raksasa Google Drive -->
+                    <div class="mb-10 p-6 bg-white/10 rounded-2xl border border-white/20 backdrop-blur-md">
+                        <p class="text-sm text-gray-300 mb-4 uppercase tracking-widest font-bold">Akses Dokumen Lengkap</p>
+                        <!-- GANTI TAUTAN GDRIVE DI BAWAH INI -->
+                        <a href="[MASUKKAN_LINK_GDRIVE_ANDA_DISINI]" target="_blank" class="inline-flex items-center justify-center gap-3 w-full sm:w-auto px-8 py-4 bg-[#4285F4] text-white font-extrabold text-lg rounded-full shadow-lg shadow-blue-500/50 hover:bg-blue-600 hover:scale-105 transition-all">
+                            <img src="docs_2020q4_48dp.png" class="w-6 h-6 brightness-0 invert"> Lihat CV, Portofolio & Sertifikat (G-Drive)
+                        </a>
+                    </div>
+                    
+                    <!-- 5. Tautan Kontak dengan Ikon Asli -->
+                    <div class="flex flex-wrap justify-center gap-4">
+                        <a href="mailto:fachriakbar1511@gmail.com" class="px-6 py-3 bg-white text-gray-900 font-bold rounded-full hover:bg-gray-100 transition-colors flex items-center gap-2">
+                            <img src="logo_gmail_lockup_default_2x_r5.png" class="h-4 object-contain"> Email Me
+                        </a>
+                        <a href="https://www.linkedin.com/in/muh-fachri-akbar/" target="_blank" class="px-6 py-3 bg-white text-gray-900 font-bold rounded-full hover:bg-gray-100 transition-colors flex items-center gap-2">
+                            <img src="ikon-bulat-aplikasi-linkedin-jaringan-profesional-terbesar-di-dunia-jejaring-sosial-pekerjaan-dan-karier_277909-817.avif" class="w-6 h-6"> LinkedIn
+                        </a>
+                        <a href="https://www.instagram.com/akbar.ph_" target="_blank" class="px-6 py-3 bg-white text-gray-900 font-bold rounded-full hover:bg-gray-100 transition-colors flex items-center gap-2">
+                            <img src="download.png" class="w-6 h-6"> Instagram
+                        </a>
+                        <a href="https://www.tiktok.com/@akbar.ph_" target="_blank" class="px-6 py-3 bg-white text-gray-900 font-bold rounded-full hover:bg-gray-100 transition-colors flex items-center gap-2">
+                            <img src="ikon-aplikasi-tiktok-logo-media-sosial_277909-647.avif" class="w-6 h-6"> TikTok
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="text-center py-8 text-sm text-gray-500 relative z-10 border-t border-gray-200 mt-12 bg-white">
+        &copy; 2026 Muh. Fachri Akbar.
+    </footer>
+
+    <!-- 6. MODAL SYSTEM (Pop-Up Bukti Dokumentasi) -->
+    <div id="buktiModal" class="hidden fixed inset-0 z-[100] bg-gray-900/90 backdrop-blur-sm flex items-center justify-center p-4 opacity-0 transition-opacity duration-300">
+        <div class="bg-white rounded-3xl p-6 max-w-2xl w-full relative transform scale-95 transition-transform duration-300" id="modalContent">
+            <!-- Tombol Close -->
+            <button onclick="closeModal()" class="absolute -top-4 -right-4 bg-red-500 text-white rounded-full w-10 h-10 flex items-center justify-center font-bold shadow-lg border-2 border-white hover:bg-red-600 transition-colors">✕</button>
+            
+            <img id="modalImage" src="" class="w-full h-64 sm:h-80 object-cover rounded-xl mb-4 bg-gray-100" onerror="this.src='https://images.unsplash.com/photo-1517048676732-d65bc937f952?q=80&w=800&auto=format&fit=crop'">
+            <h3 id="modalTitle" class="text-2xl font-bold text-gray-900 mb-2"></h3>
+            <p id="modalDesc" class="text-gray-600"></p>
+        </div>
+    </div>
+
+    <!-- JavaScript Logic -->
+    <script>
+        // Modal Logic
+        function openModal(imgSrc, title, desc) {
+            const modal = document.getElementById('buktiModal');
+            document.getElementById('modalImage').src = imgSrc;
+            document.getElementById('modalTitle').innerText = title;
+            document.getElementById('modalDesc').innerText = desc;
+            
+            modal.classList.remove('hidden');
+            setTimeout(() => {
+                modal.classList.remove('opacity-0');
+                document.getElementById('modalContent').classList.remove('scale-95');
+            }, 10);
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('buktiModal');
+            modal.classList.add('opacity-0');
+            document.getElementById('modalContent').classList.add('scale-95');
+            
+            setTimeout(() => {
+                modal.classList.add('hidden');
+            }, 300);
+        }
+
+        // Close modal when clicking outside
+        document.getElementById('buktiModal').addEventListener('click', function(e) {
+            if (e.target === this) closeModal();
+        });
+
+        // Slideshow Logic
+        document.addEventListener('DOMContentLoaded', () => {
+            const slides = document.querySelectorAll('#aboutSlider .slide');
+            let currentSlide = 0;
+
+            if(slides.length > 1) {
+                setInterval(() => {
+                    slides[currentSlide].classList.remove('active');
+                    currentSlide = (currentSlide + 1) % slides.length;
+                    slides[currentSlide].classList.add('active');
+                }, 4000);
+            }
+        });
+
+        // Data for Interactive Flow (Tech Solutions)
+        const flowData = {
+            1: { title: "Google Forms", text: "Portal awal input data otomatis dari mahasiswa." },
+            2: { title: "Autocrat (Sheets)", text: "Add-on untuk memetakan data spreadsheet ke template." },
+            3: { title: "Google Docs", text: "Template baku yang terisi otomatis menjadi PDF." },
+            4: { title: "Gmail", text: "PDF langsung dikirimkan ke email mahasiswa dalam hitungan detik." }
+        };
+
+        function switchTechTab(tabId) {
+            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+            document.getElementById(`btn-${tabId}`).classList.add('active');
+
+            document.getElementById('content-workspace').classList.add('hidden');
+            document.getElementById('content-gemini').classList.add('hidden');
+            
+            const selectedContent = document.getElementById(`content-${tabId}`);
+            selectedContent.classList.remove('hidden');
+        }
+
+        function showFlowDetail(stepNum) {
+            document.querySelectorAll('.tech-step').forEach((el, index) => {
+                el.classList.toggle('active', index === stepNum - 1);
+            });
+            const data = flowData[stepNum];
+            document.getElementById('flow-text').innerHTML = `<strong class="text-[#4285F4]">${data.title}:</strong> ${data.text}`;
+        }
+
+        // Initialize Chart.js
+        document.addEventListener('DOMContentLoaded', () => {
+            const ctx = document.getElementById('impactChart').getContext('2d');
+            new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: ['Peran Saka', 'Siswa Baru', 'SMANET CUP', 'MPK', 'Kwarcab'],
+                    datasets: [{
+                        data: [5000, 300, 80, 60, 30],
+                        backgroundColor: ['#4285F4', '#EA4335', '#FBBC05', '#34A853', '#9ca3af'],
+                        borderRadius: 6
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: { legend: { display: false } },
+                    scales: {
+                        y: { type: 'logarithmic', ticks: { callback: function(v){ return (v===10||v===100||v===1000||v===5000)?v:null; } } },
+                        x: { grid: { display: false } }
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
