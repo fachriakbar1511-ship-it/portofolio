@@ -293,7 +293,7 @@
                 <img src="A8KpgOwWGlFTe3wACiaTLxddE.avif" class="w-16 h-16 mx-auto mb-2 animate-float" alt="Rocket">
                 <h3 class="text-[#FBBC05] font-bold text-sm tracking-widest uppercase mb-2">Scale & Reach</h3>
                 <h2 class="text-3xl font-bold text-gray-900">Driving Impact at Scale</h2>
-                <p class="text-sm text-gray-500 mt-2">Klik kartu di bawah ini untuk melihat bukti dokumentasi.</p>
+                <p class="text-sm text-gray-500 mt-2">Bagian ini memvisualisasikan skala audiens dan jangkauan kepemimpinan saya melalui metrik kuantitatif. Berinteraksilah dengan grafik untuk melihat detail spesifik dari setiap capaian organisasi.</p>
             </div>
 
             <div class="grid lg:grid-cols-2 gap-8 items-center glass-panel rounded-3xl p-8 border border-gray-100">
@@ -304,15 +304,15 @@
                 </div>
                 <div class="space-y-4">
                     <!-- 6. Kartu Interaktif Impact -->
-                    <div class="p-5 rounded-2xl bg-white border border-gray-100 shadow-sm hover:shadow-md transition-all cursor-pointer hover:-translate-y-1 relative group" 
-                         onclick="openModal('[Foto_Bukti_Peran_Saka_Nasional.jpg]', 'National Scale (>5,000)', 'Mengoordinasikan perwakilan Kwarcab Makassar di Peran Saka Nasional. Memastikan kesiapan administrasi dan komunikasi tim.')">
-                        <div class="absolute top-3 right-3 text-xs font-bold text-blue-500 opacity-0 group-hover:opacity-100 transition-opacity flex items-center gap-1">
-                            📸 Lihat Bukti
+                <div class="p-5 rounded-2xl bg-white border border-gray-100 shadow-sm hover:shadow-md transition-all cursor-pointer hover:-translate-y-1 relative group" 
+                     onclick="openModal('foto-saka-1.jpg, foto-saka-2.jpg, foto-saka-3.jpg', 'National Scale (>1,700)', 'Mengoordinasikan perwakilan Kwarcab Makassar di Peran Saka Nasional. Memastikan kesiapan administrasi dan komunikasi tim.')">
+                <div class="absolute top-3 right-3 text-xs font-bold text-blue-500 opacity-0 group-hover:opacity-100 transition-opacity flex items-center gap-1">
+                    📸 Lihat Bukti
                         </div>
                         <div class="flex items-center gap-4">
                             <div class="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center text-blue-600 font-bold text-xl">🌍</div>
                             <div class="pr-6">
-                                <h4 class="font-bold text-gray-900">National Scale (>5,000)</h4>
+                                <h4 class="font-bold text-gray-900">National Scale (>1,700)</h4>
                                 <p class="text-sm text-gray-500 line-clamp-2">Mengoordinasikan perwakilan Kwarcab Makassar di Peran Saka Nasional. Memastikan kesiapan administrasi dan komunikasi tim.</p>
                             </div>
                         </div>
@@ -328,20 +328,6 @@
                             <div class="pr-6">
                                 <h4 class="font-bold text-gray-900">Organizational (80+ & 60)</h4>
                                 <p class="text-sm text-gray-500 line-clamp-2">Memimpin 60 pengurus MPK SMAN 7 & Steering Committee 80 panitia SMANET CUP.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="p-5 rounded-2xl bg-white border border-gray-100 shadow-sm hover:shadow-md transition-all cursor-pointer hover:-translate-y-1 relative group"
-                         onclick="openModal('[Foto_Bukti_Dewan_Juri.jpg]', 'Public Trust (28 Schools)', 'Terpilih menjadi Dewan Juri untuk 28 pangkalan (SMP & SMA) pada Manihot Scout Competition.')">
-                         <div class="absolute top-3 right-3 text-xs font-bold text-yellow-500 opacity-0 group-hover:opacity-100 transition-opacity flex items-center gap-1">
-                            📸 Lihat Bukti
-                        </div>
-                        <div class="flex items-center gap-4">
-                            <div class="w-12 h-12 rounded-full bg-yellow-100 flex items-center justify-center text-yellow-600 font-bold text-xl">🏫</div>
-                            <div class="pr-6">
-                                <h4 class="font-bold text-gray-900">Public Trust (28 Schools)</h4>
-                                <p class="text-sm text-gray-500 line-clamp-2">Terpilih menjadi Dewan Juri untuk 28 pangkalan (SMP & SMA) pada Manihot Scout Competition.</p>
                             </div>
                         </div>
                     </div>
@@ -740,10 +726,11 @@
     <!-- 6. MODAL SYSTEM (Pop-Up Bukti Dokumentasi) -->
     <div id="buktiModal" class="hidden fixed inset-0 z-[100] bg-gray-900/90 backdrop-blur-sm flex items-center justify-center p-4 opacity-0 transition-opacity duration-300">
         <div class="bg-white rounded-3xl p-6 max-w-2xl w-full relative transform scale-95 transition-transform duration-300" id="modalContent">
-            <!-- Tombol Close -->
-            <button onclick="closeModal()" class="absolute -top-4 -right-4 bg-red-500 text-white rounded-full w-10 h-10 flex items-center justify-center font-bold shadow-lg border-2 border-white hover:bg-red-600 transition-colors">✕</button>
+            <button onclick="closeModal()" class="absolute -top-4 -right-4 bg-red-500 text-white rounded-full w-10 h-10 flex items-center justify-center font-bold shadow-lg border-2 border-white hover:bg-red-600 transition-colors z-50">✕</button>
             
-            <img id="modalImage" src="" class="w-full h-64 sm:h-80 object-cover rounded-xl mb-4 bg-gray-100" onerror="this.src='https://images.unsplash.com/photo-1517048676732-d65bc937f952?q=80&w=800&auto=format&fit=crop'">
+            <div id="modalSliderContainer" class="w-full h-64 sm:h-80 relative rounded-xl mb-4 bg-gray-100 overflow-hidden">
+                </div>
+    
             <h3 id="modalTitle" class="text-2xl font-bold text-gray-900 mb-2"></h3>
             <p id="modalDesc" class="text-gray-600"></p>
         </div>
@@ -752,29 +739,64 @@
     <!-- JavaScript Logic -->
     <script>
         // Modal Logic
-        function openModal(imgSrc, title, desc) {
+        let modalSlideInterval; // Variabel untuk menyimpan timer slideshow
+        
+        function openModal(imagePaths, title, desc) {
             const modal = document.getElementById('buktiModal');
-            document.getElementById('modalImage').src = imgSrc;
+            const sliderContainer = document.getElementById('modalSliderContainer');
+            
+            // Set teks judul dan deskripsi
             document.getElementById('modalTitle').innerText = title;
             document.getElementById('modalDesc').innerText = desc;
             
+            // Pecah daftar nama gambar berdasarkan koma
+            const images = imagePaths.split(',');
+            sliderContainer.innerHTML = ''; // Bersihkan gambar sebelumnya
+            
+            // Masukkan setiap gambar ke dalam slider
+            images.forEach((src, index) => {
+                const imgDiv = document.createElement('div');
+                // Gambar pertama langsung muncul, sisanya sembunyi (opacity-0)
+                imgDiv.className = `absolute top-0 left-0 w-full h-full transition-opacity duration-1000 ease-in-out ${index === 0 ? 'opacity-100 z-10' : 'opacity-0 z-0'}`;
+                imgDiv.innerHTML = `<img src="${src.trim()}" class="w-full h-full object-cover" onerror="this.src='https://images.unsplash.com/photo-1517048676732-d65bc937f952?q=80&w=800&auto=format&fit=crop'">`;
+                sliderContainer.appendChild(imgDiv);
+            });
+        
+            // Jalankan timer slideshow JIKA gambar lebih dari 1
+            clearInterval(modalSlideInterval); // Reset timer lama
+            if (images.length > 1) {
+                let currentSlide = 0;
+                const slides = sliderContainer.children;
+                modalSlideInterval = setInterval(() => {
+                    slides[currentSlide].classList.remove('opacity-100', 'z-10');
+                    slides[currentSlide].classList.add('opacity-0', 'z-0');
+                    
+                    currentSlide = (currentSlide + 1) % slides.length;
+                    
+                    slides[currentSlide].classList.remove('opacity-0', 'z-0');
+                    slides[currentSlide].classList.add('opacity-100', 'z-10');
+                }, 3000); // Ganti gambar setiap 3 detik
+            }
+        
+            // Tampilkan Modal dengan animasi mulus
             modal.classList.remove('hidden');
             setTimeout(() => {
                 modal.classList.remove('opacity-0');
                 document.getElementById('modalContent').classList.remove('scale-95');
             }, 10);
         }
-
+        
         function closeModal() {
             const modal = document.getElementById('buktiModal');
             modal.classList.add('opacity-0');
             document.getElementById('modalContent').classList.add('scale-95');
             
+            clearInterval(modalSlideInterval); // Hentikan slideshow saat ditutup
+            
             setTimeout(() => {
                 modal.classList.add('hidden');
             }, 300);
         }
-
         // Close modal when clicking outside
         document.getElementById('buktiModal').addEventListener('click', function(e) {
             if (e.target === this) closeModal();
