@@ -95,6 +95,21 @@
         .tech-step { transition: transform 0.2s; cursor: pointer; }
         .tech-step:hover { transform: translateY(-5px); }
         .tech-step.active { border-color: #4285F4; background-color: #eff6ff; }
+/* Auto-Slide CSS untuk Kartu Galeri */
+        .gallery-card-slider img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+        /* Gambar pertama langsung muncul */
+        .gallery-card-slider img:first-child {
+            opacity: 1;
+        }
 
         /* Floating Animation for Stickers */
         @keyframes float {
@@ -319,29 +334,29 @@
                     </div>
                     
                     <div class="p-5 rounded-2xl bg-white border border-gray-100 shadow-sm hover:shadow-md transition-all cursor-pointer hover:-translate-y-1 relative group"
-                         onclick="openModal('AMIGO-196.jpg, WhatsApp Image 2024-12-16 at 11.43.46(1).jpeg, DSCF6436.JPG, Sertifikat OSISMPK 2324 Adim-page-00001.jpg', 'Organizational (80+ & 60)', 'Memimpin 60 pengurus MPK SMAN 7 & Steering Committee 80 panitia SMANET CUP.')">
+                         onclick="openModal('AMIGO-196.jpg, WhatsApp Image 2024-12-16 at 11.43.46(1).jpeg, DSCF6436.JPG, Sertifikat OSISMPK 2324 Adim-page-00001.jpg', 'Organizational (60+ & 55)', 'Memimpin 60 pengurus MPK SMAN 7 & Steering Committee 55 panitia SMANET CUP.')">
                         <div class="absolute top-3 right-3 text-xs font-bold text-green-500 opacity-0 group-hover:opacity-100 transition-opacity flex items-center gap-1">
                             📸 Lihat Bukti
                         </div>
                         <div class="flex items-center gap-4">
                             <div class="w-12 h-12 rounded-full bg-green-100 flex items-center justify-center text-green-600 font-bold text-xl">👥</div>
                             <div class="pr-6">
-                                <h4 class="font-bold text-gray-900">Organizational (80+ & 60)</h4>
-                                <p class="text-sm text-gray-500 line-clamp-2">Memimpin 60 pengurus MPK SMAN 7 & Steering Committee 80 panitia SMANET CUP.</p>
+                                <h4 class="font-bold text-gray-900">Organizational (60+ & 55)</h4>
+                                <p class="text-sm text-gray-500 line-clamp-2">Memimpin 60 pengurus MPK SMAN 7 & Steering Committee 55 panitia SMANET CUP.</p>
                             </div>
                         </div>
                     </div>
 
                     <div class="p-5 rounded-2xl bg-white border border-gray-100 shadow-sm hover:shadow-md transition-all cursor-pointer hover:-translate-y-1 relative group"
-                         onclick="openModal('[Foto_Bukti_Dewan_Juri.jpg]', 'Public Trust (28 Schools)', 'Terpilih menjadi Dewan Juri untuk 28 pangkalan (SMP & SMA) pada Manihot Scout Competition.')">
+                         onclick="openModal('KETUA KELAS 1.jpg, IMG-20260316-WA0063.jpg, Screenshot_20260316-152007.jpg, FOTO PEMANTIK.jpg, Screenshot_20260316-165226.jpg', 'Academic & Peer Leadership (23+25', 'Bertanggung jawab sebagai representatif kelas sekaligus fasilitator diskusi. Mengelola komunikasi akademik mahasiswa serta menjadi pemantik materi dalam forum pengkaderan untuk meningkatkan pemahaman kolektif.')">
                          <div class="absolute top-3 right-3 text-xs font-bold text-yellow-500 opacity-0 group-hover:opacity-100 transition-opacity flex items-center gap-1">
                             📸 Lihat Bukti
                         </div>
                         <div class="flex items-center gap-4">
                             <div class="w-12 h-12 rounded-full bg-yellow-100 flex items-center justify-center text-yellow-600 font-bold text-xl">🏫</div>
                             <div class="pr-6">
-                                <h4 class="font-bold text-gray-900">Public Trust (28 Schools)</h4>
-                                <p class="text-sm text-gray-500 line-clamp-2">Terpilih menjadi Dewan Juri untuk 28 pangkalan (SMP & SMA) pada Manihot Scout Competition.</p>
+                                <h4 class="font-bold text-gray-900">Academic & Peer Leadership (23+25)</h4>
+                                <p class="text-sm text-gray-500 line-clamp-2">Bertanggung jawab sebagai representatif kelas sekaligus fasilitator diskusi. Mengelola komunikasi akademik mahasiswa serta menjadi pemantik materi dalam forum pengkaderan untuk meningkatkan pemahaman kolektif.</p>
                             </div>
                         </div>
                     </div>
@@ -495,21 +510,21 @@
             <!-- 6. Kartu Interaktif Voice -->
             <div class="grid md:grid-cols-3 gap-6">
                 <div class="glass-panel p-6 rounded-2xl border-t-4 border-t-[#4285F4] hover:-translate-y-2 transition-transform cursor-pointer group relative"
-                     onclick="openModal('[Foto_Bukti_Speaker_Siswa_Baru.jpg]', 'Mass Audience', 'Menjadi pembicara dan pengarah di depan >300 siswa baru.')">
+                     onclick="openModal('Fotvlcsnap-2025-12-26-11h41m52s287.png', 'Mass Audience', 'Menjadi pembicara dan pengarah di depan >300 siswa baru.')">
                      <div class="absolute top-3 right-3 text-xs font-bold text-[#4285F4] opacity-0 group-hover:opacity-100">📸 Bukti</div>
                     <h4 class="font-bold text-gray-900 mb-2 mt-2">Mass Audience</h4>
                     <p class="text-sm text-gray-600">Menjadi pembicara dan pengarah di depan >300 siswa baru.</b>.</p>
                 </div>
                 
                 <div class="glass-panel p-6 rounded-2xl border-t-4 border-t-[#EA4335] hover:-translate-y-2 transition-transform cursor-pointer group relative"
-                     onclick="openModal('[Foto_Bukti_Juara_MC.jpg]', 'Formal & Religious', 'Memandu acara keagamaan dan formal dengan audiens beragam (50 - ratusan orang), menjuarai lomba MC & Kultum.')">
+                     onclick="openModal('IMG_8340.jpg, SPR_6057.JPG, vlcsnap-2026-03-16-17h16m07s443.png, vlcsnap-2026-03-16-17h47m05s494.png', 'Formal & Religious', 'Memandu acara keagamaan dan formal dengan audiens beragam (50 - ratusan orang), menjuarai lomba MC & Kultum.')">
                      <div class="absolute top-3 right-3 text-xs font-bold text-[#EA4335] opacity-0 group-hover:opacity-100">📸 Bukti</div>
                     <h4 class="font-bold text-gray-900 mb-2 mt-2">Formal & Religious</h4>
                     <p class="text-sm text-gray-600">Memandu acara keagamaan dan formal dengan audiens beragam (50 - ratusan orang), menjuarai lomba MC & Kultum.</p>
                 </div>
                 
                 <div class="glass-panel p-6 rounded-2xl border-t-4 border-t-[#FBBC05] hover:-translate-y-2 transition-transform cursor-pointer group relative"
-                     onclick="openModal('[Foto_Bukti_Mediasi.jpg]', 'Conflict Mediation', 'Mengelola dinamika dan mediasi konflik antar ekstrakurikuler saat menjadi Ketua Pelaksana lomba sekolah lintas organisasi.')">
+                    onclick="openModal('b84fe880-5280-4e3e-8234-c310bb6b448d.jpg, VID-20250323-WA0000 - frame at 0m3s.jpg, DSCF4788.JPG, DSCF5543.JPG' 'Conflict Mediation', 'Mengelola dinamika dan mediasi konflik antar ekstrakurikuler saat menjadi Ketua Pelaksana lomba sekolah lintas organisasi.')">
                      <div class="absolute top-3 right-3 text-xs font-bold text-[#FBBC05] opacity-0 group-hover:opacity-100">📸 Bukti</div>
                     <h4 class="font-bold text-gray-900 mb-2 mt-2">Conflict Mediation</h4>
                     <p class="text-sm text-gray-600">Mengelola dinamika dan mediasi konflik antar ekstrakurikuler saat menjadi Ketua Pelaksana lomba sekolah lintas organisasi.</p>
@@ -529,98 +544,111 @@
 
             <!-- CSS Grid for Gallery -->
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                <!-- Gallery Item 1 -->
-                <div class="glass-panel rounded-2xl overflow-hidden group cursor-pointer border border-gray-200">
-                    <div class="h-48 overflow-hidden relative">
-                        <!-- GANTI SRC FOTO -->
-                        <img src="[Foto_Peran_Saka.jpg]" alt="Peran Saka Nasional" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" onerror="this.src='https://images.unsplash.com/photo-1523580494863-6f3031224c94?q=80&w=600&auto=format&fit=crop'">
-                        <div class="absolute inset-0 bg-gradient-to-t from-gray-900/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
+                
+                <!-- Gallery 1: Peran Saka -->
+                <div class="glass-panel rounded-2xl overflow-hidden group cursor-pointer border border-gray-200 transition-all hover:border-[#EA4335]/30 hover:shadow-lg" 
+                     onclick="openModal('IMG-20251110-WA0074.jpg, IMG-20251109-WA0172.jpg, Screenshot_20260316-234028.jpg, Screenshot_20260316-234131.jpg', 'Peran Saka Nasional', 'Mengoordinasikan kontingen Kwarcab Makassar di tingkat nasional pada November 2025.')">
+                    <div class="h-48 overflow-hidden relative gallery-card-slider" id="sakaSlider">
+                        <img src="IMG-20251110-WA0074.jpg" alt="Saka 1" class="group-hover:scale-110 transition-transform duration-500">
+                        <img src="IMG-20251109-WA0172.jpg" alt="Saka 2" class="group-hover:scale-110 transition-transform duration-500">
+                        <img src="Screenshot_20260316-234028.jpg" alt="Saka 3" class="group-hover:scale-110 transition-transform duration-500">
+			<img src="Screenshot_20260316-234131.jpg" alt="Saka 3" class="group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-gray-900/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4 z-10">
                             <span class="text-white text-xs font-bold bg-[#EA4335] px-2 py-1 rounded">Nasional</span>
                         </div>
                     </div>
-                    <div class="p-5 bg-white">
+                    <div class="p-5 bg-white relative z-20">
                         <h4 class="font-bold text-gray-900 text-lg mb-1">Peran Saka Nasional</h4>
-                        <p class="text-sm text-gray-500 line-clamp-2">Pimpinan Kontingen Cabang Kota Makassar (Gorontalo, 2025). Mengkoordinasikan kontingen di tingkat nasional.</p>
+                        <p class="text-sm text-gray-500 line-clamp-2">Pimpinan Kontingen Kota Makassar (Nov 2025). Mengoordinasikan perwakilan di tingkat nasional.</p>
                     </div>
                 </div>
 
-                <!-- Gallery Item 2 -->
-                <div class="glass-panel rounded-2xl overflow-hidden group cursor-pointer border border-gray-200">
-                    <div class="h-48 overflow-hidden relative">
-                         <!-- GANTI SRC FOTO -->
-                        <img src="[Foto_Raimuna.jpg]" alt="Raimuna Nasional" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" onerror="this.src='https://images.unsplash.com/photo-1511632765486-a01980e01a18?q=80&w=600&auto=format&fit=crop'">
-                        <div class="absolute inset-0 bg-gradient-to-t from-gray-900/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
-                            <span class="text-white text-xs font-bold bg-[#34A853] px-2 py-1 rounded">Nasional</span>
+                <!-- Gallery 2: MPK & SMANET CUP -->
+                <div class="glass-panel rounded-2xl overflow-hidden group cursor-pointer border border-gray-200 transition-all hover:border-[#4285F4]/30 hover:shadow-lg" 
+                     onclick="openModal('IMG-20240808-WA0054.jpg, vlcsnap-2025-12-26-11h41m52s287.png, DSCF6436.JPG', 'Ketua MPK & SC SMANET CUP', 'Memimpin 60 pengurus MPK dan menjadi Steering Committee yang mengawasi puluhan panitia pada SMANET CUP 2024.')">
+                    <div class="h-48 overflow-hidden relative gallery-card-slider" id="mpkSlider">
+                        <img src="IMG-20240808-WA0054.jpg" alt="MPK 1" class="group-hover:scale-110 transition-transform duration-500">
+                        <img src="vlcsnap-2025-12-26-11h41m52s287.png" alt="MPK 2" class="group-hover:scale-110 transition-transform duration-500">
+                        <img src="DSCF6436.JPG" alt="MPK 3" class="group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-gray-900/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4 z-10">
+                            <span class="text-white text-xs font-bold bg-[#4285F4] px-2 py-1 rounded">Organisasi</span>
                         </div>
                     </div>
-                    <div class="p-5 bg-white">
-                        <h4 class="font-bold text-gray-900 text-lg mb-1">Raimuna Nasional</h4>
-                        <p class="text-sm text-gray-500 line-clamp-2">Peserta Raimuna Nasional Jakarta (Agustus 2024). Melatih adaptasi lintas budaya seluruh Indonesia.</p>
+                    <div class="p-5 bg-white relative z-20">
+                        <h4 class="font-bold text-gray-900 text-lg mb-1">MPK SMAN 7 Makassar</h4>
+                        <p class="text-sm text-gray-500 line-clamp-2">Ketua MPK & Steering Committee SMANET CUP 2024. Mengelola birokrasi dan event besar sekolah.</p>
                     </div>
                 </div>
 
-                <!-- Gallery Item 3 -->
-                <div class="glass-panel rounded-2xl overflow-hidden group cursor-pointer border border-gray-200">
-                    <div class="h-48 overflow-hidden relative">
-                         <!-- GANTI SRC FOTO -->
-                        <img src="[Foto_SmanetCup.jpg]" alt="SMANET CUP" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" onerror="this.src='https://images.unsplash.com/photo-1540317580384-e5d43616b9aa?q=80&w=600&auto=format&fit=crop'">
-                        <div class="absolute inset-0 bg-gradient-to-t from-gray-900/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
-                            <span class="text-white text-xs font-bold bg-[#FBBC05] px-2 py-1 rounded">Sekolah</span>
+                <div class="glass-panel rounded-2xl overflow-hidden group cursor-pointer border border-gray-200 transition-all hover:border-[#FBBC05]/30 hover:shadow-lg" 
+                     onclick="openModal('IMG-20251130-WA0094.jpg, Screenshot_20260317-000240.jpg, IMG_20251129_135930_317.jpg', 'Event Management & Leadership Training', 'Terlibat sebagai panitia inti dalam penyelenggaraan Kursus Pengelola Dewan Kerja (KPDK) Kwarcab Kota Makassar (November 2025). Mengelola dinamika acara, administrasi, dan memastikan kelancaran program pelatihan kepemimpinan tingkat cabang.')">
+                    <div class="h-48 overflow-hidden relative gallery-card-slider" id="akademikSlider">
+                        <!-- INGAT: Ganti nama file di bawah ini dengan nama file fotomu yang asli! -->
+                        <img src="IMG-20251130-WA0094.jpg" alt="KPDK 1" class="group-hover:scale-110 transition-transform duration-500">
+                        <img src="Screenshot_20260317-000240.jpg" alt="KPDK 2" class="group-hover:scale-110 transition-transform duration-500">
+                        <img src="IMG_20251129_135930_317.jpg" alt="KPDK 3" class="group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-gray-900/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4 z-10">
+                            <span class="text-gray-900 text-xs font-bold bg-[#FBBC05] px-2 py-1 rounded">Event Management</span>
                         </div>
                     </div>
-                    <div class="p-5 bg-white">
-                        <h4 class="font-bold text-gray-900 text-lg mb-1">Steering Committee</h4>
-                        <p class="text-sm text-gray-500 line-clamp-2">SMANET CUP 2024. Mengawasi dan menjadi konsultan bagi 80 panitia pelaksana kegiatan.</p>
+                    <div class="p-5 bg-white relative z-20">
+                        <h4 class="font-bold text-gray-900 text-lg mb-1">Panitia KPDK Makassar</h4>
+                        <p class="text-sm text-gray-500 line-clamp-2">Panitia Pelaksana Kursus Pengelola Dewan Kerja (Nov 2025). Mengelola operasional pelatihan kepemimpinan.</p>
                     </div>
                 </div>
 
-                <!-- Gallery Item 4 -->
-                <div class="glass-panel rounded-2xl overflow-hidden group cursor-pointer border border-gray-200">
-                    <div class="h-48 overflow-hidden relative">
-                         <!-- GANTI SRC FOTO -->
-                        <img src="[Foto_Osismpk.jpg]" alt="MPK SMAN 7 Makassar" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" onerror="this.src='https://images.unsplash.com/photo-1511632765486-a01980e01a18?q=80&w=600&auto=format&fit=crop'">
-                        <div class="absolute inset-0 bg-gradient-to-t from-gray-900/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
-                            <span class="text-white text-xs font-bold bg-[#34A853] px-2 py-1 rounded">Nasional</span>
+                <!-- Gallery 4: Pondasi Sipil -->
+                <div class="glass-panel rounded-2xl overflow-hidden group cursor-pointer border border-gray-200 transition-all hover:border-[#34A853]/30 hover:shadow-lg" 
+                     onclick="openModal('IMG-20251215-WA0100.jpg, vlcsnap-2026-03-17-00h15m24s912.png, IMG-20251214-WA0156.jpg', 'Pondasi Mahasiswa Sipil' 'Terlibat aktif dalam Pekan Orientasi dan Kaderisasi Mahasiswa Teknik Sipil PNUP (Des 2025).')">
+                    <div class="h-48 overflow-hidden relative gallery-card-slider" id="pondasiSlider">
+                        <img src="IMG-20251215-WA0100.jpg" alt="Pondasi 1" class="group-hover:scale-110 transition-transform duration-500">
+                        <img src="vlcsnap-2026-03-17-00h15m24s912.png" alt="Pondasi 2" class="group-hover:scale-110 transition-transform duration-500">
+                        <img src="IMG-20251214-WA0156.jpg" alt="Pondasi 3" class="group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-gray-900/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4 z-10">
+                            <span class="text-white text-xs font-bold bg-[#34A853] px-2 py-1 rounded">Kampus</span>
                         </div>
                     </div>
-                    <div class="p-5 bg-white">
-                        <h4 class="font-bold text-gray-900 text-lg mb-1">Raimuna Nasional</h4>
-                        <p class="text-sm text-gray-500 line-clamp-2">Peserta Raimuna Nasional Jakarta (Agustus 2024). Melatih adaptasi lintas budaya seluruh Indonesia.</p>
+                    <div class="p-5 bg-white relative z-20">
+                        <h4 class="font-bold text-gray-900 text-lg mb-1">Pondasi Teknik Sipil</h4>
+                        <p class="text-sm text-gray-500 line-clamp-2">Peserta aktif Pekan Orientasi dan Kaderisasi Mahasiswa Sipil PNUP (Des 2025).</p>
                     </div>
                 </div>
 
-                <!-- Gallery Item 6 -->
-                <div class="glass-panel rounded-2xl overflow-hidden group cursor-pointer border border-gray-200">
-                    <div class="h-48 overflow-hidden relative">
-                         <!-- GANTI SRC FOTO -->
-                        <img src="[Foto_Raimuna.jpg]" alt="Raimuna Nasional" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" onerror="this.src='https://images.unsplash.com/photo-1511632765486-a01980e01a18?q=80&w=600&auto=format&fit=crop'">
-                        <div class="absolute inset-0 bg-gradient-to-t from-gray-900/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
-                            <span class="text-white text-xs font-bold bg-[#34A853] px-2 py-1 rounded">Nasional</span>
+                <!-- Gallery 5: Juri Manihot -->
+                <div class="glass-panel rounded-2xl overflow-hidden group cursor-pointer border border-gray-200 transition-all hover:border-[#9C27B0]/30 hover:shadow-lg" 
+                     onclick="openModal('foto-juri-1.jpg, foto-juri-2.jpg, foto-juri-3.jpg', 'Dewan Juri Manihot Utilissima', 'Dipercaya sebagai dewan juri penilai pada Scout Competition (Feb 2026), melakukan evaluasi standar kualitas kompetisi.')">
+                    <div class="h-48 overflow-hidden relative gallery-card-slider" id="juriSlider">
+                        <img src="foto-juri-1.jpg" alt="Juri 1" class="group-hover:scale-110 transition-transform duration-500">
+                        <img src="foto-juri-2.jpg" alt="Juri 2" class="group-hover:scale-110 transition-transform duration-500">
+                        <img src="foto-juri-3.jpg" alt="Juri 3" class="group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-gray-900/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4 z-10">
+                            <span class="text-white text-xs font-bold bg-[#9C27B0] px-2 py-1 rounded">Evaluator</span>
                         </div>
                     </div>
-                    <div class="p-5 bg-white">
-                        <h4 class="font-bold text-gray-900 text-lg mb-1">Raimuna Nasional</h4>
-                        <p class="text-sm text-gray-500 line-clamp-2">Peserta Raimuna Nasional Jakarta (Agustus 2024). Melatih adaptasi lintas budaya seluruh Indonesia.</p>
+                    <div class="p-5 bg-white relative z-20">
+                        <h4 class="font-bold text-gray-900 text-lg mb-1">Dewan Juri Kompetisi</h4>
+                        <p class="text-sm text-gray-500 line-clamp-2">Dewan Juri Manihot Utilissima Scout Competition (Feb 2026). Mengevaluasi peserta lomba.</p>
                     </div>
                 </div>
 
-                <!-- Gallery Item 1 -->
-                <div class="glass-panel rounded-2xl overflow-hidden group cursor-pointer border border-gray-200">
-                    <div class="h-48 overflow-hidden relative">
-                        <!-- GANTI SRC FOTO -->
-                        <img src="[Foto_Peran_Saka.jpg]" alt="Peran Saka Nasional" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" onerror="this.src='https://images.unsplash.com/photo-1523580494863-6f3031224c94?q=80&w=600&auto=format&fit=crop'">
-                        <div class="absolute inset-0 bg-gradient-to-t from-gray-900/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
+                <!-- Gallery 6: Raimuna -->
+                <div class="glass-panel rounded-2xl overflow-hidden group cursor-pointer border border-gray-200 transition-all hover:border-[#EA4335]/30 hover:shadow-lg" 
+                     onclick="openModal('foto-raimuna-1.jpg, foto-raimuna-2.jpg, foto-raimuna-3.jpg', 'Raimuna Nasional 2023', 'Mewakili Makassar dalam ajang Raimuna Nasional di Jakarta (Ags 2023). Melatih kolaborasi lintas budaya dari berbagai provinsi.')">
+                    <div class="h-48 overflow-hidden relative gallery-card-slider" id="raimunaSlider">
+                        <img src="foto-raimuna-1.jpg" alt="Raimuna 1" class="group-hover:scale-110 transition-transform duration-500">
+                        <img src="foto-raimuna-2.jpg" alt="Raimuna 2" class="group-hover:scale-110 transition-transform duration-500">
+                        <img src="foto-raimuna-3.jpg" alt="Raimuna 3" class="group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-gray-900/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4 z-10">
                             <span class="text-white text-xs font-bold bg-[#EA4335] px-2 py-1 rounded">Nasional</span>
                         </div>
                     </div>
-                    <div class="p-5 bg-white">
-                        <h4 class="font-bold text-gray-900 text-lg mb-1">Peran Saka Nasional</h4>
-                        <p class="text-sm text-gray-500 line-clamp-2">Pimpinan Kontingen Cabang Kota Makassar (Gorontalo, 2025). Mengkoordinasikan kontingen di tingkat nasional.</p>
+                    <div class="p-5 bg-white relative z-20">
+                        <h4 class="font-bold text-gray-900 text-lg mb-1">Raimuna Nasional</h4>
+                        <p class="text-sm text-gray-500 line-clamp-2">Peserta Raimuna Nasional Jakarta (Ags 2023). Membangun relasi lintas budaya pemuda Indonesia.</p>
                     </div>
                 </div>
+
             </div>
-        </section>
-
         <!-- 1. CERTIFICATES GALLERY SECTION (NEW) -->
         <section id="certificates" class="scroll-mt-24 z-10 relative">
             <div class="mb-10 text-center">
@@ -815,6 +843,30 @@
                 }, 4000);
             }
         });
+// Fungsi Auto-Slide Khusus Kartu Galeri
+        function startCardSlider(sliderId, intervalTime = 3000) {
+            const slider = document.getElementById(sliderId);
+            if (!slider) return;
+            const slides = slider.querySelectorAll('img');
+            if (slides.length <= 1) return;
+
+            let currentSlide = 0;
+            setInterval(() => {
+                slides[currentSlide].style.opacity = 0; 
+                currentSlide = (currentSlide + 1) % slides.length; 
+                slides[currentSlide].style.opacity = 1; 
+            }, intervalTime);
+        }
+
+        // Panggil fungsi slider saat halaman siap
+        document.addEventListener('DOMContentLoaded', () => {
+            startCardSlider('sakaSlider', 4000); // Peran Saka ganti tiap 4 detik
+	    startCardSlider('mpkSlider', 3500); // 3.5 detik
+            startCardSlider('akademikSlider', 4000); // 4 detik
+            startCardSlider('pondasiSlider', 4500); // 4.5 detik
+            startCardSlider('juriSlider', 5000); // 5 detik
+            startCardSlider('raimunaSlider', 5500); // 5.5 detik
+        });
 
         // Data for Interactive Flow
         const flowData = {
@@ -897,8 +949,8 @@
             const ctx = document.getElementById('impactChart').getContext('2d');
             
             // Data array for the chart
-            const labels = ['Peran Saka (Peserta)', 'Penerimaan Siswa Baru', 'Panitia SMANET CUP', 'Pengurus MPK', 'Perwakilan Kwarcab'];
-            const dataValues = [1700, 300, 80, 60, 30];
+            const labels = ['Peran Saka (Jumlah Peserta)', 'Pengurus MPK/OSIS', 'Panitia SMANET CUP', 'Forum Kaderisasi', 'Ketua Kelas'];
+            const dataValues = [1700, 60, 55, 25, 23];
 
             new Chart(ctx, {
                 type: 'bar', // Using bar to clearly show massive scale differences
